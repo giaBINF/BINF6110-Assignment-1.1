@@ -1,15 +1,3 @@
-﻿First part of Assignment 1! Please work...
-Due to the interdisciplinary nature of bioinformatics it is important to take into consideration both technical and genetic challenges. As a result, errors can become complex. 
-
-Notes:
-Nanopore reads are prone to contain complex errors.1
-Errors are broadly distributed among nanopore reads and in susbsequences of a read.
-Complicates the selection of supporting reads during the error-correcting process. 
-Structural variations identified in raw reads have a high false-positive rate.
-Development of NECAT
-Includes methods of progressive error correction, adaptive supporting reads and alignment selection, and two-stage assembly.
-Can reduce the structural false-positive rates.
-
-#   B I N F 6 1 1 0 - A s s i g n m e n t - 1 . 1  
- #   B I N F 6 1 1 0 - A s s i g n m e n t - 1 . 1  
+﻿Genomic sequencing, more specifically whole-genome sequencing (WGS), is a cornerstone of modern medicine and has become an indispensable application in many other scientific fields. Recent advances in technology have rapidly improved the cost, speed, and accuracy of genome sequencing tools allowing for the introduction of higher-throughput second- and subsequential third-generation sequencing.1,2 These developments have led to the widespread adoption of sequencing platforms that generate either short (Illumina) or long (Oxford Nanopore) DNA reads, with each approach presenting unique trade-offs in accuracy, read length, and analytical applications. Short-read sequencing technologies generate highly accurate reads, typically ranging from approximately 35 to 1000 base pairs in length. In contrast, long-reads often span several to tens of kilobases, which improve genome assembly contiguity, albeit with higher per-base error rates.1 However, the context of what is being researched is more important to take into consideration. 
+ 
  
