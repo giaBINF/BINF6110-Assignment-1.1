@@ -29,3 +29,8 @@ tmp/
 
 # System files
 .DS_Store
+
+# BAM / BAI (never commit)
+**/*.bam
+**/*.bai
+**/*.csi
