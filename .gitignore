@@ -6,16 +6,24 @@ data/*.fastq.gz
 align/*.bam
 align/*.bai
 
-# Assemblies
-assembly/**/bubbles_*.fasta
+# Flye intermediates
+assembly/flye/00-assembly/
+assembly/flye/10-consensus/
+assembly/flye/20-repeat/
+assembly/flye/40-polishing/
 
-# Variant files
+# Keep final contigs only
+assembly/flye/30-contigger/*.bam
+assembly/flye/30-contigger/*.bai
+
+# Variant outputs
 variants/**/*.vcf
 variants/**/*.vcf.gz
 variants/**/*.tbi
 
-# Logs & temp
+# Logs and temp files
 *.log
+*.stderr
 tmp/
 **/tmp/
 

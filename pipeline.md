@@ -54,7 +54,27 @@ docker run --rm --platform linux/amd64 \
 Assembled contigs were aligned to a curated Salmonella enterica reference genome obtained from the NCBI RefSeq database (GCF_000006945.2) using minimap2 with the asm5 preset. Resulting alignments were sorted and indexed using samtools for downstream visualization and interpretation. This step answers structural questions. 
 
 ### Aligning for Variants ###
+docker run --rm --platform linux/amd64 \
+  -v "$PWD":/work -w /work \
+  quay.io/biocontainers/minimap2:2.28--he4a0461_0 \
+  minimap2 -ax map-ont \
+    ref/reference.fasta \
+    data/SRR32410565.fastq | \
+  docker run --rm --platform linux/amd64 -i \
+    -v "$PWD":/work -w /work \
+    quay.io/biocontainers/samtools:1.20--h50ea8bc_0 \
+    samtools sort -o align/reads_to_ref.bam
 
-
+### Indexing 
+docker run --rm --platform linux/amd64 \
+  -v "$PWD":/work -w /work \
+  quay.io/biocontainers/samtools:1.20--h50ea8bc_0 \
+  samtools index align/reads_to_ref.bam
 
 Homozygous SNP: NC_003197.2:1,695,111-1,695,161
+
+### Variant Calling ###
+
+Variant calling using Clair3 identified 10,268 candidate variants across chromosomal and plasmid contigs relative to the Salmonella enterica Typhimurium LT2 reference genome.
+
+While many variants likely reflect true strain-level divergence, a subset of calls—particularly small indels—are consistent with residual Oxford Nanopore sequencing error, especially in homopolymeric regions.
