@@ -1,0 +1,23 @@
+# Raw data
+data/*.fastq
+data/*.fastq.gz
+
+# Alignments
+align/*.bam
+align/*.bai
+
+# Assemblies
+assembly/**/bubbles_*.fasta
+
+# Variant files
+variants/**/*.vcf
+variants/**/*.vcf.gz
+variants/**/*.tbi
+
+# Logs & temp
+*.log
+tmp/
+**/tmp/
+
+# System files
+.DS_Store
