@@ -78,3 +78,27 @@ Homozygous SNP: NC_003197.2:1,695,111-1,695,161
 Variant calling using Clair3 identified 10,268 candidate variants across chromosomal and plasmid contigs relative to the Salmonella enterica Typhimurium LT2 reference genome.
 
 While many variants likely reflect true strain-level divergence, a subset of calls—particularly small indels—are consistent with residual Oxford Nanopore sequencing error, especially in homopolymeric regions.
+
+# Create output directory
+mkdir -p variants/clair3
+
+# Run Clair3 (ONT, bacterial fine-tuned model, include chromosome + plasmid contigs)
+docker run --rm --platform linux/amd64 \
+  -v "$PWD":/work -w /work \
+  hkubal/clair3:latest \
+  bash --noprofile --norc -lc '
+set -e
+source /opt/conda/etc/profile.d/conda.sh
+conda activate clair3
+
+/opt/bin/run_clair3.sh \
+  --bam_fn=align/reads_to_ref.bam \
+  --ref_fn=ref/reference.fasta \
+  --threads=8 \
+  --platform=ont \
+  --model_path=/opt/models/r1041_e82_400bps_sup_v430_bacteria_finetuned \
+  --include_all_ctgs \
+  --output=variants/clair3
+'
+
+Variants were called from Oxford Nanopore read alignments using Clair3 with an ONT bacterial fine-tuned model, with calling enabled across all contigs, and results were written to a merged VCF.
