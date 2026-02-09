@@ -53,8 +53,14 @@ Oxford Nanopore long-read sequencing was used to assemble and analyze the Salmon
 Two single-nucleotide variants and one small insertion/deletion were examined through manual inspection in IGV. Figures 1 and 2 show two single-nucleotide variants: a G to A substitution at NC_003197.2:1,224,522–1,224,561 and an A to G substitution at NC_003197.2:2,762,698–2,762,737. Both variants were supported by multiple aligned reads and were consistently identified by Clair3, indicating high-confidence variant calls. Figure 3 shows a small insertion/deletion at NC_003197.2:2,772,520–2,772,559, which exhibited read-level support and was also detected by Clair3 but was interpreted more cautiously due to the higher indel error rate associated with ONT sequencing. These examples demonstrate that SNVs can be identified with higher confidence than indels in long-read sequencing data, underscoring the importance of manual variant interpretation<sup>13</sup>.
 
 ![Figure 1: SNV G to A Substitution](images/snp1.png)
+Figure 1. Single-nucleotide variant (G→A) identified in Salmonella enterica.
+
 ![Figure 2: SNV A to G Substitution](images/snp2.png)
+Figure 2. Single-nucleotide variant (A→G) identified in Salmonella enterica.
+
 ![Indel example](images/indel.png)
+Figure 3. Small insertion/deletion detected in Salmonella enterica.
+
 
 Variant interpretation was limited by base-level errors common in Oxford Nanopore sequencing, particularly for insertions and deletions. Reads were not stringently filtered prior to variant calling, which likely allowed lower-quality reads to contribute noise in indel-prone regions. Additional read filtering using tools such as NanoFilt could reduce this noise and improve indel interpretation<sup>13</sup>. Variant calling was also based solely on long-read data, without short-read polishing or independent validation, which reduced confidence in base-level accuracy. Combining read filtering with hybrid sequencing or short-read polishing would improve confidence in small-variant detection, particularly for indels.
 
