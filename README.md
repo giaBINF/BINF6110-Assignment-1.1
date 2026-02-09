@@ -26,7 +26,7 @@ Aggressive trimming was avoided to prevent unnecessary loss of sequencing depth,
 
 De novo genome assembly was performed using Flye v2.9.6, a long-read assembler optimized for error-prone sequencing technologies such as Oxford Nanopore. Flye constructs assemblies using repeat graphs, allowing effective resolution of repetitive genomic regions and plasmids commonly present in bacterial genomes.
 
-Assembly was conducted using parameters appropriate for high-quality ONT data, including the --nano-hq option, which assumes an error rate consistent with modern ONT basecalling<sup>2</sup>. Default Flye parameters were otherwise used, with multithreading enabled to optimize computational performance. The resulting draft assembly consisted of contiguous sequences representing chromosomal and plasmid components of the Salmonella enterica genome.
+Assembly was conducted using parameters appropriate for high-quality ONT data, including the `--nano-hq` option, which assumes an error rate consistent with modern ONT basecalling<sup>2</sup>. Default Flye parameters were otherwise used, with multithreading enabled to optimize computational performance. The resulting draft assembly consisted of contiguous sequences representing chromosomal and plasmid components of the Salmonella enterica genome.
 
 ## 2.5 Reference-based alignment of long reads
 
@@ -36,7 +36,7 @@ Alignments were generated using the map-ont preset, which is optimized for the e
 
 ## 2.6 Variant calling
 
-Single-nucleotide variants (SNVs) and small insertions and deletions (indels) were identified using Clair3, a deep learning-based variant caller optimized for Oxford Nanopore sequencing data<sup>9</sup>. Variant calling was performed using the --platform ont parameter to ensure appropriate modeling of ONT-specific error profiles. Variant detection was enabled across all contigs using the --include_all_ctgs option to ensure inclusion of plasmid and smaller contigs. Multithreading was used to improve computational efficiency. Output variant call format (VCF) files were compressed, sorted, and indexed for downstream visualization and inspection.
+Single-nucleotide variants (SNVs) and small insertions and deletions (indels) were identified using Clair3, a deep learning-based variant caller optimized for Oxford Nanopore sequencing data<sup>9</sup>. Variant calling was performed using the `--platform` ont parameter to ensure appropriate modeling of ONT-specific error profiles. Variant detection was enabled across all contigs using the `--include_all_ctgs` option to ensure inclusion of plasmid and smaller contigs. Multithreading was used to improve computational efficiency. Output variant call format (VCF) files were compressed, sorted, and indexed for downstream visualization and inspection.
 
 ## 2.7 Variant visualization and manual inspection
 
