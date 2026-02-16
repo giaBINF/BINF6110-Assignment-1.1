@@ -44,11 +44,28 @@ Variant calls and read alignments were visualized using the Integrative Genomics
 
 Manual inspection focused on evaluating read-level evidence for selected variants, including consistency across multiple reads, strand support, and positional stability within alignments. Particular attention was paid to regions prone to ONT sequencing artefacts, such as homopolymer tracts and low-complexity regions.
 
-# 3. Discussion
+# 3. Results
+
+**Table 1.** Summary of Variant Counts
+| Variant Category  | Count  |
+| ------------- | ------------- |
+| Total SNVs  | 9,738  |
+| Total Indels  | 530  |
+| Missense | 3,149 |
+| Synonymous  | 4,920  |
+| Intergenic  | 1,636  | 
+
+**Table 2.**  Gene Location and Function
+| Gene  | Location  | Function  |
+| ------------- | ------------- | ------------- |
+| PSLT068  | pSLT virulence plasmid  | Outer membrane lipoprotein involved in surface exclusion  |
+| STM1022  | Chromosome  | Chaperone-associated protein involved in stress response  |
+
+# 4. Discussion
 
 Oxford Nanopore long-read sequencing was used to assemble and analyze the Salmonella enterica genome using a combination of genome assembly and read-level variant calling. Salmonella enterica possesses a single circular bacterial chromosome and may carry plasmids, and its genome contains repetitive elements that can complicate reconstruction<sup>12</sup>. The Flye assembly produced a contiguous genome consistent with this expected organization. Long reads were able to span repetitive regions and plasmid sequences, which often cause fragmentation in short-read assemblies<sup>3</sup>. As a result, this approach was well suited for examining overall genome structure. However, because long-read sequencing is less accurate at the base level, the assembly was more informative for structural analysis than for identifying precise genetic variants.
 
-## 3.2 IGV-based variant interpretation
+## 4.2 IGV-based variant interpretation
 
 Two single-nucleotide variants and one small insertion/deletion were examined through manual inspection in IGV. Figures 1 and 2 show two single-nucleotide variants: a G to A substitution at NC_003197.2:1,224,522–1,224,561 and an A to G substitution at NC_003197.2:2,762,698–2,762,737. Both variants were supported by multiple aligned reads and were consistently identified by Clair3, indicating high-confidence variant calls. Figure 3 shows a small insertion/deletion at NC_003197.2:2,772,520–2,772,559, which exhibited read-level support and was also detected by Clair3 but was interpreted more cautiously due to the higher indel error rate associated with ONT sequencing. These examples demonstrate that SNVs can be identified with higher confidence than indels in long-read sequencing data, underscoring the importance of manual variant interpretation<sup>13</sup>.
 
