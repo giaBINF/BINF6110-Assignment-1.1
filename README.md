@@ -46,7 +46,7 @@ Manual inspection focused on evaluating read-level evidence for selected variant
 
 # 3. Results
 
-**Table 1.** Summary of Variant Counts
+### <a name="table-1"></a>**Table 1.** Summary of Variant Counts
 | Variant Category  | Count  |
 | ------------- | ------------- |
 | Total SNVs  | 9,738  |
@@ -55,19 +55,19 @@ Manual inspection focused on evaluating read-level evidence for selected variant
 | Synonymous  | 4,920  |
 | Intergenic  | 1,636  | 
 
-**Table 2.**  Gene Location and Function
+### <a name="table-2"></a>**Table 2.**  Gene Location and Function
 | Gene  | Location  | Function  |
 | ------------- | ------------- | ------------- |
 | PSLT068  | pSLT virulence plasmid  | Outer membrane lipoprotein involved in surface exclusion  |
 | STM1022  | Chromosome  | Chaperone-associated protein involved in stress response  |
 
-# 4. Discussion
-
-Oxford Nanopore long-read sequencing was used to assemble and analyze the Salmonella enterica genome using a combination of genome assembly and read-level variant calling. Salmonella enterica possesses a single circular bacterial chromosome and may carry plasmids, and its genome contains repetitive elements that can complicate reconstruction<sup>12</sup>. The Flye assembly produced a contiguous genome consistent with this expected organization. Long reads were able to span repetitive regions and plasmid sequences, which often cause fragmentation in short-read assemblies<sup>3</sup>. As a result, this approach was well suited for examining overall genome structure. However, because long-read sequencing is less accurate at the base level, the assembly was more informative for structural analysis than for identifying precise genetic variants.
-
-## 4.2 IGV-based variant interpretation
-
-Two single-nucleotide variants and one small insertion/deletion were examined through manual inspection in IGV. Figures 1 and 2 show two single-nucleotide variants: a G to A substitution at NC_003197.2:1,224,522–1,224,561 and an A to G substitution at NC_003197.2:2,762,698–2,762,737. Both variants were supported by multiple aligned reads and were consistently identified by Clair3, indicating high-confidence variant calls. Figure 3 shows a small insertion/deletion at NC_003197.2:2,772,520–2,772,559, which exhibited read-level support and was also detected by Clair3 but was interpreted more cautiously due to the higher indel error rate associated with ONT sequencing. These examples demonstrate that SNVs can be identified with higher confidence than indels in long-read sequencing data, underscoring the importance of manual variant interpretation<sup>13</sup>.
+### <a name="table-3"></a>**Table 3.** Assembly Contig Statistics
+| Contig  | Length (bp)  | Coverage (x)  | Circular  |
+| ------------- | ------------- | ------------- | ------------- |
+| contig_1  | 3,318,716  | 121  | No  |
+| contig_2  | 1,676,959  | 133  | No  |
+| contig_3 | 109,058 | 188  | Yes  |
+| contig_4  | 6,269  | 73  | No  |
 
 ![Figure 1: SNV G to A Substitution](images/snp1.png)
 **Figure 1.** Single-nucleotide variant (G→A) identified in Salmonella enterica.  
@@ -78,7 +78,10 @@ Two single-nucleotide variants and one small insertion/deletion were examined th
 ![Indel example](images/indel.png)
 **Figure 3.** Small insertion/deletion detected in Salmonella enterica.
 
-Variant interpretation was limited by base-level errors common in Oxford Nanopore sequencing, particularly for insertions and deletions. Reads were not stringently filtered prior to variant calling, which likely allowed lower-quality reads to contribute noise in indel-prone regions. Additional read filtering using tools such as NanoFilt could reduce this noise and improve indel interpretation<sup>13</sup>. Variant calling was also based solely on long-read data, without short-read polishing or independent validation, which reduced confidence in base-level accuracy. Combining read filtering with hybrid sequencing or short-read polishing would improve confidence in small-variant detection, particularly for indels.
+# 4. Discussion
+Whole genome sequencing of Salmonella enterica generated a high depth assembly (>150× coverage) composed of four contigs, including one circular contig consistent with a plasmid element. Variant calling identified 9,738 single nucleotide variants and 530 indels relative to the LT2 reference genome [(Table 1)](#table-1). The majority of variants were single nucleotide substitutions, with missense mutations (3,149) and synonymous mutations (4,920) representing the largest functional categories. A smaller subset of variants occurred in intergenic regions (1,636), suggesting potential regulatory changes.
+
+
 
 # Reference List
 1.	Brlek P, Bulić L, Bračić M, Projić P, Škaro V, Shah N, et al. Implementing Whole Genome Sequencing (WGS) in Clinical Practice: Advantages, Challenges, and Future Perspectives. Cells. 2024 Jan;13(6):504. 
